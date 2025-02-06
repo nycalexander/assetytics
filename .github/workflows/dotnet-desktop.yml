@@ -57,7 +57,7 @@ jobs:
       run: 7z a build.zip .\publish\*
   
     - name: Release build artifact
-        uses: softprops/action-gh-release@v2
-        with:
-          files: build.zip
-          tag_name: artifact-build
+      uses: softprops/action-gh-release@v2
+      with:
+        files: build.zip
+        tag_name: artifact-build
