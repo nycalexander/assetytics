@@ -1,6 +1,8 @@
 name: .NET 6.0 Windows
 
 on:
+  push:
+    branches: [ "main" ]
   pull_request:
     branches: [ "main" ]
 
@@ -41,9 +43,21 @@ jobs:
       shell: cmd
       run: dotnet publish -p:PublishSingleFile=true --self-contained false -o %cd%\publish\
 
-    - name: Upload build artifacts
+    - name: Upload build artifact
       uses: actions/upload-artifact@v4
       with:
         name: ZIP Build
         path: .\publish\
 
+    - name: Setup 7-Zip
+      uses: milliewalky/setup-7-zip@v1
+
+    - name: Archive published application
+      shell: cmd
+      run: 7z a build.zip .\publish\*
+  
+    - name: Release build artifact
+        uses: softprops/action-gh-release@v2
+        with:
+          files: build.zip
+          tag_name: artifact-build
