@@ -1,9 +1,9 @@
 # Assetytics
 
 <div>
-<video src="https://raw.githubusercontent.com/nycalexander/assetytics/main/demo.mp4" autoplay loop muted />
+<video src="https://github.com/user-attachments/assets/5d39ca0c-fcf2-4e12-9f34-ec4c7bfdd5aa" autoplay loop muted />
 </div>
-
+  
 Example windows application built with .NET 6.0 and Photino, designed to fetch real-time prices for gold, oil, and silver using the STOOQ API. The frontend is developed using HTML/CSS, while the backend is powered by C#. Inspired by the Electron Sample app named [Prices](https://github.com/electron/simple-samples/tree/master/prices).
 
 ## Features
