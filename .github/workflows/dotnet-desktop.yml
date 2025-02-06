@@ -61,3 +61,4 @@ jobs:
       with:
         files: build.zip
         tag_name: artifact-build
+        token: ${{ secrets.WORKFLOW_TOKEN }}
