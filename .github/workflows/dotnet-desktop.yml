@@ -1,8 +1,6 @@
 name: .NET 6.0 Windows
 
 on:
-  push:
-    branches: [ "main" ]
   pull_request:
     branches: [ "main" ]
 
