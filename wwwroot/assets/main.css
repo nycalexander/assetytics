@@ -1,0 +1,95 @@
+.gold, .gold small {
+    background-color: gold;
+    color: #403600;
+  }
+  
+  .silver, .silver small {
+    background-color: silver;
+    color: #404040;
+  }
+  
+  .oil, .oil small {
+    background-color: black;
+    color: #E5E5E5;
+  }
+  
+  html, body, .container-fluid {
+    height: 100%;
+    font-family: Bebas Neue, Segoe UI;
+    font-style: normal;
+    font-weight: normal;
+    user-select: none;
+  }
+  
+  .row {
+    height: 33.33333333%;
+  }
+  
+  .row > div {
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+  
+  .price {
+    padding-right: 5px;
+  }
+  
+  /* Add a ( before the change */
+  .change::before {
+    content: '(';
+  }
+  
+  /* Add a ) after the change */
+  .change::after {
+    content: ')';
+  }
+  
+  /* Add a $ before the price */
+  .price::before {
+    content: '$';
+  }
+  
+  /* Hide the price and change when they are empty */
+  .change:empty, .price:empty {
+    display: none;
+  }
+
+/**
+	Loading animation
+**/
+
+#html-spinner {
+    width:25px;
+    height:25px;
+    border:4px solid rgb(54, 54, 54);
+    border-top:4px solid rgb(255, 255, 255);
+    border-radius:50%;
+
+    transition-property: transform;
+    animation-name: rotate; 
+    animation-duration: 1.2s; 
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+}
+
+@-webkit-keyframes rotate {
+    from {-webkit-transform: rotate(0deg);}
+    to {-webkit-transform: rotate(360deg);}
+}
+
+@-moz-keyframes rotate {
+    from {-moz-transform: rotate(0deg);}
+    to {-moz-transform: rotate(360deg);}
+}
+
+@keyframes rotate {
+    from {transform: rotate(0deg);}
+    to {transform: rotate(360deg);}
+}
+
+#html-spinner {
+    position: absolute;
+    bottom: 15px;
+    right: 15px;
+}

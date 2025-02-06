@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Current Prices</title>
+
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="assets/main.css" />
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+</head>
+
+<body>
+  <div id="container" class="container-fluid">
+
+    <!-- Oil Row -->
+    <div class="row oil">
+      <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 ">
+        <h1>Oil <small>per barrel</small></h1>
+        <h2>
+            <span id="oil-price" class="price"></span>
+            <small id="oil-change" class="change"></small>
+          </h2>
+      </div>
+    </div>
+
+    <!-- Gold Row -->
+    <div class="row gold">
+      <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+        <h1>Gold <small>per ounce</small></h1>
+        <h2>
+            <span id="gold-price" class="price"></span>
+            <small id="gold-change" class="change"></small>
+          </h2>
+      </div>
+    </div>
+
+    <!-- Silver Row -->
+    <div class="row silver">
+      <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+        <h1 class="silver">Silver <small>per ounce</small></h1>
+        <h2>
+            <span id="silver-price" class="price"></span>
+            <small id="silver-change" class="change"></small>
+          </h2>
+      </div>
+    </div>
+  </div>
+
+  <div id="html-spinner"></div>
+
+  <script>
+    // Function to request stock data update
+    function requestStockUpdate() {
+        window.external.sendMessage("updateStocks");
+    }
+
+    // This function will handle messages from the C# application
+    window.external.receiveMessage(message => {
+        eval(message);
+    });
+
+    // Wait for the DOM to be fully loaded
+    document.addEventListener("DOMContentLoaded", function () {
+      console.log("DOM fully loaded and parsed.");
+      requestStockUpdate();
+      setInterval(requestStockUpdate, 1800000);
+    });
+  </script>
+
+</body>
+
+</html>
